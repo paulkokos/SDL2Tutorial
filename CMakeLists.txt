@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 3.17)
+project(SDL2Tutorial)
+
+set(CMAKE_CXX_STANDARD 20)
+
+find_package(SDL2 REQUIRED)
+include_directories(${SDL2_INCLUDE_DIR})
+set(CMAKE_SHARED_LINKER_FLAGS "-lSDL2main -lSDL2")
+
+add_executable(SDL2Tutorial main.cpp)
+target_link_libraries(SDL2Tutorial SDL2)

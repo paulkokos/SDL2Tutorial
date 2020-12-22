@@ -1,13 +1,16 @@
 #include <iostream>
 #include <SDL2/SDL.h>
-//Screen dimension constants
-const int SCREEN_WIDTH = 1024;
-const int SCREEN_HEIGHT = 768;
-//Starts up SDL and creates window
-bool init();
+int width;
+int height;
 
+//Screen dimension constants
+int SCREEN_WIDTH = 300;
+int SCREEN_HEIGHT = 300;
 //Loads media
 bool loadMedia();
+
+//Starts up SDL and creates window
+bool init();
 
 //Frees media and shuts down SDL
 void close();
@@ -20,6 +23,24 @@ SDL_Surface* gScreenSurface = NULL;
 
 //The image we will load and show on the screen
 SDL_Surface* gHelloWorld = NULL;
+
+bool loadMedia()
+{
+    //Loading success flag
+    bool success = true;
+
+    //Load splash image
+    gHelloWorld = SDL_LoadBMP( "../lena_color.bmp" );
+    width = gHelloWorld->w;
+    height =gHelloWorld->h;
+    if( gHelloWorld == NULL )
+    {
+        printf( "Unable to load image %s! SDL Error: %s\n", "../lena_color.bmp", SDL_GetError() );
+        success = false;
+    }
+
+    return success;
+}
 
 bool init()
 {
@@ -46,22 +67,6 @@ bool init()
             //Get window surface
             gScreenSurface = SDL_GetWindowSurface( gWindow );
         }
-    }
-
-    return success;
-}
-
-bool loadMedia()
-{
-    //Loading success flag
-    bool success = true;
-
-    //Load splash image
-    gHelloWorld = SDL_LoadBMP( "../lena_color.bmp" );
-    if( gHelloWorld == NULL )
-    {
-        printf( "Unable to load image %s! SDL Error: %s\n", "../lena_color.bmp", SDL_GetError() );
-        success = false;
     }
 
     return success;

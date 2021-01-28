@@ -4,8 +4,8 @@ int width;
 int height;
 
 //Screen dimension constants
-int SCREEN_WIDTH = 300;
-int SCREEN_HEIGHT = 300;
+int SCREEN_WIDTH =800;
+int SCREEN_HEIGHT = 600;
 //Loads media
 bool loadMedia();
 
@@ -56,7 +56,7 @@ bool init()
     else
     {
         //Create window
-        gWindow = SDL_CreateWindow( "SDL Tutorial", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
+        gWindow = SDL_CreateWindow( "Pavlos Kokozidis [3774]- Thesis", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
         if( gWindow == NULL )
         {
             printf( "Window could not be created! SDL_Error: %s\n", SDL_GetError() );

@@ -8,6 +8,8 @@ add_subdirectory(libs)
 add_subdirectory(src)
 add_subdirectory(tests)
 
+
+
 add_executable(MAIN main.cpp)
 
 find_package(SDL2 REQUIRED)
